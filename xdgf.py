@@ -1,1 +1,1 @@
-print("this is nk")
+print("this")
