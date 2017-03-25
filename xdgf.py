@@ -1,1 +1,1 @@
-print("this is network")
+print("this is nk")
