@@ -1,2 +1,0 @@
-# idepy
-identity python project
