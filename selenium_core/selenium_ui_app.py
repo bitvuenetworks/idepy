@@ -17,7 +17,6 @@ class App:
             self.profile = webdriver.FirefoxProfile()
         elif self.browser == 'chrome':
             self.capabilities = DesiredCapabilities.CHROME
-            # self.profile = Options()
         elif self.browser == 'internet explorer':
             self.capabilities = DesiredCapabilities.INTERNETEXPLORER
             self.profile = None
