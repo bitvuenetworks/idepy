@@ -1,19 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.ie.webdriver import WebDriver
-
 
 class App:
-    def __init__(self, selenium_url=None, browser='firefox', deployment=False,init=True, maximize=True):
+    def __init__(self, selenium_url=None, browser='firefox', maximize=True):
         self.download_path = ''
         self.profile = None
         self.driver = None
         self.selenium_url = selenium_url
         self.browser = browser
         self.maximize = maximize
-        self.deployment = deployment
-        self.init = init
         self.profile = None
         self.is_remote = False
 
@@ -29,8 +24,7 @@ class App:
         else:
             raise Exception('Bad browser name')
 
-        if self.init:
-            self.run()
+        self.run()
 
     def run(self):
         """launching the web driver"""
@@ -62,18 +56,7 @@ class App:
 
     def timeout(self, time):
         self.driver.implicitly_wait(time)
-    '''
-    def set_deployment_profile_firefox(self):
-        self.download_path = 'C:\\selenium_downloads\\'
-        self.profile = webdriver.FirefoxProfile()
-        self.profile.set_preference("browser.download.folderList", 2)
-        self.profile.set_preference("browser.download.manager.showWhenStarting", False)
-        self.profile.set_preference("browser.download.panel.shown", False)
-        self.profile.set_preference("browser.download.dir", self.download_path)
-        self.profile.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream")
-        self.profile.set_preference("browser.download.animateNotifications", False)
-        self.profile.set_preference("layout.css.devPixelsPerPx", '0.75')
-    '''
+
     def switch_to_newwindow(self, number):
         self.number = number
         self.driver.switch_to_window(self.driver.window_handles[self.number])
