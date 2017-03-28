@@ -1,5 +1,6 @@
 import unittest
 from selenium_core.selenium_ui_app import App
+
 from ui_poms.ise.login_page import Login
 from ui_poms.ise.administration.identity_management.users import Users
 import logging
@@ -9,9 +10,9 @@ logging.basicConfig(level=logging.DEBUG,format="%(asctime)s %(levelname)s [%(nam
 logger = logging.getLogger(__name__)
 
 
-ADMIN_USERNAME = 'admin'
-ADMIN_PASSWORD = 'Lab@123'
-ISE_URL = "https://10.86.100.39"
+ADMIN_USERNAME = 'chaitu'
+ADMIN_PASSWORD = 'Bitvue@123'
+ISE_URL = "https://192.168.100.111"
 SELENIUM_URL = "http://127.0.0.1:4444/wd/hub"
 
 class FirstTestCase(unittest.TestCase):

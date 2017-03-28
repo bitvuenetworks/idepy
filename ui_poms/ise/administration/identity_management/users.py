@@ -76,7 +76,7 @@ class Users(BasePage):
             self.network_access_user_group(user_group).click()
         self.submit_button.scroll_to_element()
         self.submit_button.click()
-        self.submit_button.click()
+        # self.submit_button.click()
 
     #function to fill the form
     def fill_network_access_user_form(self, name_text, password, password_confirm):
