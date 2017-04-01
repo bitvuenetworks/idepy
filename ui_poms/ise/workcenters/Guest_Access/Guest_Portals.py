@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium_core.selenium_ui_elements import Button
 from selenium_core.selenium_ui_elements import Link
 from selenium_core.selenium_ui_elements import Input
-from selenium_core.selenium_ui_elements import *
 from ui_poms.ise.workcenters.Guest_Access.Portals_Components import Portals_Components
 import time
 
@@ -17,12 +16,12 @@ class Guest_Portals(BasePage):
 
     @property
 
-    def navigate_Guest_Portals(self):
-        return Link(By.XPATH,".//*[@id='accordion']/li[1]/a/div",self.driver)
+    def navigate_guest_portals(self):
+        return Link(By.XPATH, "//div[contains(text(),'Guest Portals')]", self.driver)
 
 
     def navigate_from_parent(self):
-        self.navigate_Guest_Portals.click()
+        self.navigate_guest_portals.click()
 
 
     def get_parent_page(self):
@@ -30,20 +29,20 @@ class Guest_Portals(BasePage):
 
     @property
 
-    def Guest_Portals_Create_Button(self):
+    def guest_portals_Create_Button(self):
         return Button(By.XPATH,".//*[@id='guestAccessMainCreateBtn']",self.driver)
 
     #creation guest portal elements
 
 
-    def Sponcerd_Guest_Portal_selection(self):
-        return Button(By.XPATH,".//*[@id='xwt_widget_form_TextButton_46']",self.driver)
+    def Sponcerd_guest_portal_selection(self):
+        return Button(By.XPATH,"//span[contains(text(),'Continue...')]",self.driver)
 
-    def Guest_Portal_Name(self):
+    def guest_portal_Name(self):
         return Input(By.ID,"portalName",self.driver)
 
 
-    def Guest_Portal_Description(self):
+    def guest_portal_Description(self):
         return Input(By.ID,"portalDescription",self.driver)
 
 
@@ -52,19 +51,19 @@ class Guest_Portals(BasePage):
 
 
 
-    def add_Guest_Portal(self,Name,Description):
-        self.wait_for_loader(self.Guest_Portals_Create_Button)
-        self.Guest_Portals_Create_Button.click()
+    def add_guest_portal(self,Name,Description):
+        self.wait_for_loader([self.guest_portals_Create_Button])
+        self.guest_portals_Create_Button.click()
         time.sleep(3)
-        self.Sponcerd_Guest_Portal_selection().click()
+        self.Sponcerd_guest_portal_selection().click()
         time.sleep(5)
-        self.fill_Guest_Portal_form(Name,Description)
+        self.fill_guest_portal_form(Name,Description)
         time.sleep(10)
         self.Save_Button().click()
 
-    def fill_Guest_Portal_form(self,Name,Description):
-        self.Guest_Portal_Name().click()
-        self.Guest_Portal_Name().send_text(Name)
+    def fill_guest_portal_form(self,Name,Description):
+        self.guest_portal_Name().click()
+        self.guest_portal_Name().send_text(Name)
 
-        self.Guest_Portal_Description().click()
-        self.Guest_Portal_Description().send_text(Description)
+        self.guest_portal_Description().click()
+        self.guest_portal_Description().send_text(Description)
